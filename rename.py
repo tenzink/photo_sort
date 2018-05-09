@@ -14,7 +14,7 @@ def folders(path):
     return
 
 def files(path):
-  return itertools.izip(itertools.repeat(path), os.listdir(path))
+  return zip(itertools.repeat(path), os.listdir(path))
 
 months={
     1:u'Январь',
@@ -78,7 +78,7 @@ def renameFolders(path):
     full_folder_path = os.path.join(root, f)
     _ensure_exists(os.path.dirname(newPath))
     if os.path.exists(newPath):
-      raise RuntimeError, "%s already exists" % newPath
+      raise RuntimeError("Already exists", newPath)
     shutil.move(full_folder_path, newPath)
 
 
